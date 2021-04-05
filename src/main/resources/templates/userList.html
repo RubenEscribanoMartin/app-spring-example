@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring Framework RuffenGuru</title>
+</head>
+<body>
+	<h1>User List</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>User Name</th>
+			<th>User Phone</th>
+		</tr>
+		<tr th:each="user : ${users}">
+			<td th:text="${user.id}">123</td>
+			<td th:text="${user.userName}">123</td>
+			<td th:text="${user.userPhone}">123</td>
+		</tr>
+	</table>
+
+</body>
+</html>

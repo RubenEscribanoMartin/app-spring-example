@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Product {
@@ -20,6 +22,12 @@ public class Product {
 	
 	private String productName;
 	private String productReferenceNumber;
+	
+	/*
+	 * A product only stand by one company
+	 */
+	@ManyToOne
+	private Company company;
 	
 	@ManyToMany
 	@JoinTable(name= "user_product", joinColumns = @JoinColumn(name ="product_id"), 
@@ -66,6 +74,14 @@ public class Product {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
 	}
 
 	@Override
